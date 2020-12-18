@@ -50,7 +50,7 @@ namespace MVCClientVSFly
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Flights}/{action=Index}/{id?}");
             });
         }
     }
