@@ -31,13 +31,15 @@ namespace MVCClientVSFly.Controllers
 
             foreach (Models.Flight f in listFlight)
             {
-              
-                    listFlightM.Add(f);
+
+                   listFlightM.Add(f);
                
             }
 
             return View("IndexAsync", listFlightM);
         }
+
+       
 
         // GET: FlightsController/Details/5
         public ActionResult Details(int id)

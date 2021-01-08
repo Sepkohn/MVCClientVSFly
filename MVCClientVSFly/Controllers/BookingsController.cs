@@ -28,17 +28,11 @@ namespace MVCClientVSFly.Controllers
             Models.Booking b = new Models.Booking();
 
             b.FlightNo = f.FlightNo;
-            b.Price = calculatePrice(f);
 
             return View(b);
         }
 
-        private double calculatePrice(Models.Flight f) {
-            double Price = f.SeatPrice;
-
-
-            return Price;
-        }
+        
 
         // POST: BookingsController/Create
         [HttpPost]
