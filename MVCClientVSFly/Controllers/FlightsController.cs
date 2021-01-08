@@ -27,8 +27,17 @@ namespace MVCClientVSFly.Controllers
             string message = await response.Content.ReadAsStringAsync();
 
             IEnumerable<Models.Flight> listFlight = JsonConvert.DeserializeObject<IEnumerable<Models.Flight>>(message);
+            List<Models.Flight> listFlightM = new List<Models.Flight>();
 
-            return View("IndexAsync", listFlight);
+            foreach (Models.Flight f in listFlight)
+            {
+                //if (f.Seats > 0)
+                //{ 
+                    listFlightM.Add(f);
+                //}
+            }
+
+            return View("IndexAsync", listFlightM);
         }
 
         // GET: FlightsController/Details/5
