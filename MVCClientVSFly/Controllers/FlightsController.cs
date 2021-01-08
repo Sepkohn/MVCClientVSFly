@@ -31,10 +31,9 @@ namespace MVCClientVSFly.Controllers
 
             foreach (Models.Flight f in listFlight)
             {
-                //if (f.Seats > 0)
-                //{ 
+              
                     listFlightM.Add(f);
-                //}
+               
             }
 
             return View("IndexAsync", listFlightM);

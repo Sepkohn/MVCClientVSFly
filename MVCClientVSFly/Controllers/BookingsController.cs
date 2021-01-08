@@ -28,8 +28,16 @@ namespace MVCClientVSFly.Controllers
             Models.Booking b = new Models.Booking();
 
             b.FlightNo = f.FlightNo;
+            b.Price = calculatePrice(f);
 
             return View(b);
+        }
+
+        private double calculatePrice(Models.Flight f) {
+            double Price = f.SeatPrice;
+
+
+            return Price;
         }
 
         // POST: BookingsController/Create
@@ -38,21 +46,24 @@ namespace MVCClientVSFly.Controllers
         public async Task<ActionResult> Create(Models.Booking b)
         {
             Models.Message m = new Models.Message();
+                string bookingJson = JsonConvert.SerializeObject(b);
+                HttpContent stringContent = new StringContent(bookingJson, Encoding.UTF8, "application/json");
+                HttpResponseMessage response = await _httpClient.PostAsync(("api/Bookings"), stringContent);
             try
             {
-                string flightJson = JsonConvert.SerializeObject(b);
-                HttpContent stringContent = new StringContent(flightJson, Encoding.UTF8, "application/json");
-                HttpResponseMessage response = await _httpClient.PostAsync("api/Bookings", stringContent);
                 response.EnsureSuccessStatusCode();
-                string data = await response.Content.ReadAsStringAsync();
-                m.Content = data;
+                
+                // string data = await response.Content.ReadAsStringAsync();
+                m.Content = "Réservation effectué";
 
 
                 return View("ShowMessage", m);
             }
             catch (Exception e)
             {
-                m.Content = e.Message;
+                //res
+                //m.Content = e.Message;
+                m.Content = await response.Content.ReadAsStringAsync();
                 return View("ShowMessage", m);
             }
         }

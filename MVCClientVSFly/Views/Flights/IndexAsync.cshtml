@@ -27,6 +27,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Seats)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SeatPrice)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -49,7 +52,10 @@
                 @Html.DisplayFor(modelItem => item.Seats)
             </td>
             <td>
-                @Html.ActionLink("Book", "Create","Bookings", item)
+                @Html.DisplayFor(modelItem => item.SeatPrice)
+            </td>
+            <td>
+                @Html.ActionLink("Book", "Create", "Bookings", item)
 
             </td>
         </tr>
