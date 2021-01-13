@@ -1,9 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,6 +25,7 @@ namespace MVCClientVSFly.Controllers
             Models.Booking b = new Models.Booking();
 
             b.FlightNo = f.FlightNo;
+            b.Price = f.SeatPrice;
 
             return View(b);
         }
@@ -47,16 +45,12 @@ namespace MVCClientVSFly.Controllers
             {
                 response.EnsureSuccessStatusCode();
                 
-                // string data = await response.Content.ReadAsStringAsync();
                 m.Content = "Réservation effectué";
-
 
                 return View("ShowMessage", m);
             }
-            catch (Exception e)
+            catch
             {
-                //res
-                //m.Content = e.Message;
                 m.Content = await response.Content.ReadAsStringAsync();
                 return View("ShowMessage", m);
             }

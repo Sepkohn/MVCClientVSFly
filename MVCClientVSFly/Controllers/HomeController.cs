@@ -1,11 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MVCClientVSFly.Models;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace MVCClientVSFly.Controllers
 {
@@ -20,7 +16,7 @@ namespace MVCClientVSFly.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return RedirectToAction("Index", "Flights");
         }
 
         public IActionResult Privacy()

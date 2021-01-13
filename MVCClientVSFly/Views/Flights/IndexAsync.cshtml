@@ -6,9 +6,6 @@
 
 <h1>IndexAsync</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
@@ -25,7 +22,7 @@
                 @Html.DisplayNameFor(model => model.Date)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Seats)
+                @Html.DisplayNameFor(model => model.AvailableSeats)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.SeatPrice)
@@ -49,7 +46,7 @@
                 @Html.DisplayFor(modelItem => item.Date)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Seats)
+                @Html.DisplayFor(modelItem => item.AvailableSeats)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.SeatPrice)

@@ -1,5 +1,3 @@
-using System;
-
 namespace MVCClientVSFly.Models
 {
     public class ErrorViewModel
